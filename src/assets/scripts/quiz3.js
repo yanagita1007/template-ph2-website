@@ -13,47 +13,47 @@
    * @description 問題と回答の定数
    * @type {QUIZ[]}
    */
-  const ALL_QUIZ = [
-    {
-      id: 1,
-      question: '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？',
-      answers: ['約28万人', '約79万人', '約183万人'],
-      correctNumber: 1,
-      note: '経済産業省 2019年3月 － IT 人材需給に関する調査'
-    },
-    {
-      id: 2,
-      question: '既存業界のビジネスと、先進的なテクノロジーを結びつけて生まれた、新しいビジネスのことをなんと言うでしょう？',
-      answers: ['INTECH', 'BIZZTECH', 'X-TECH'],
-      correctNumber: 2,
-    },
-    {
-      id: 3,
-      question: 'IoTとは何の略でしょう？',
-      answers: ['Internet of Things', 'Integrate into Technology', 'Information on Tool'],
-      correctNumber: 0,
-    },
-    {
-      id: 4,
-      question: 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？',
-      answers: ['Society 5.0', 'CyPhy', 'SDGs'],
-      correctNumber: 0,
-      note: 'Society5.0 - 科学技術政策 - 内閣府'
-    },
-    {
-      id: 5,
-      question: 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？',
-      answers: ['Web3.0', 'NFT', 'メタバース'],
-      correctNumber: 0,
-    },
-    {
-      id: 6,
-      question: '先進テクノロジー活用企業と出遅れた企業の収益性の差はどれくらいあると言われているでしょうか？',
-      answers: ['約2倍', '約5倍', '約11倍'],
-      correctNumber: 1,
-      note: 'Accenture Technology Vision 2021'
-    }
-  ];
+  // const ALL_QUIZ = [
+  //   {
+  //     id: 1,
+  //     question: '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？',
+  //     answers: ['約28万人', '約79万人', '約183万人'],
+  //     correctNumber: 1,
+  //     note: '経済産業省 2019年3月 － IT 人材需給に関する調査'
+  //   },
+  //   {
+  //     id: 2,
+  //     question: '既存業界のビジネスと、先進的なテクノロジーを結びつけて生まれた、新しいビジネスのことをなんと言うでしょう？',
+  //     answers: ['INTECH', 'BIZZTECH', 'X-TECH'],
+  //     correctNumber: 2,
+  //   },
+  //   {
+  //     id: 3,
+  //     question: 'IoTとは何の略でしょう？',
+  //     answers: ['Internet of Things', 'Integrate into Technology', 'Information on Tool'],
+  //     correctNumber: 0,
+  //   },
+  //   {
+  //     id: 4,
+  //     question: 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？',
+  //     answers: ['Society 5.0', 'CyPhy', 'SDGs'],
+  //     correctNumber: 0,
+  //     note: 'Society5.0 - 科学技術政策 - 内閣府'
+  //   },
+  //   {
+  //     id: 5,
+  //     question: 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？',
+  //     answers: ['Web3.0', 'NFT', 'メタバース'],
+  //     correctNumber: 0,
+  //   },
+  //   {
+  //     id: 6,
+  //     question: '先進テクノロジー活用企業と出遅れた企業の収益性の差はどれくらいあると言われているでしょうか？',
+  //     answers: ['約2倍', '約5倍', '約11倍'],
+  //     correctNumber: 1,
+  //     note: 'Accenture Technology Vision 2021'
+  //   }
+  // ];
 
   /**
    * @description クイズコンテナーの取得
@@ -131,22 +131,23 @@
    * @description quizArrayに並び替えたクイズを格納
    * @type {Array}
    */
-  const quizArray = shuffle(ALL_QUIZ)
+  // const quizArray = shuffle(ALL_QUIZ)
 
   /**
    * @type {string}
    * @description 生成したクイズのHTMLを #js-quizContainer に挿入
    */
 
-  quizContainer.innerHTML = quizArray.map((quizItem, index) => {
-    return createQuizHtml(quizItem, index)
-  }).join('')
+  // quizContainer.innerHTML = quizArray.map((quizItem, index) => {
+  //   return createQuizHtml(quizItem, index)
+  // }).join('')
 
   /**
    * @type {NodeListOf<Element>}
    * @description すべての問題を取得
    */
   const allQuiz  = document.querySelectorAll('.js-quiz');
+  // console.log(allQuiz);
 
   /**
    * @description buttonタグにdisabledを付与
@@ -180,26 +181,40 @@
    * 各問題の中での処理
    */
   allQuiz.forEach(quiz => {
+    // const Answer = document.querySelector('.p-quiz-box__answer__button');
+    // console.log(Answer);
+    // const ans = Answer.getAttribute("data-answer");
+    // console.log(ans);
+
     const answers = quiz.querySelectorAll('.js-answer');
+    // console.log(answers);
     const selectedQuiz = Number(quiz.getAttribute('data-quiz'));
     const answerBox = quiz.querySelector('.js-answerBox');
     const answerTitle = quiz.querySelector('.js-answerTitle');
     const answerText = quiz.querySelector('.js-answerText');
 
+
     answers.forEach(answer => {
+      // console.log(answers);
+      
       answer.addEventListener('click', () => {
         answer.classList.add('is-selected');
-        const selectedAnswerNumber = Number(answer.getAttribute('data-answer'));
+        // const selectedAnswerNumber = Number(ans);
+        console.log(answer);
+        
+
+        const cor = Number(answer.getAttribute("data-correct"));
+        console.log(cor);
 
         // 全てのボタンを非活性化
         setDisabled(answers);
 
         // 正解ならtrue, 不正解ならfalseをcheckCorrectに格納
-        const correctNumber = quizArray[selectedQuiz].correctNumber
-        const isCorrect = correctNumber === selectedAnswerNumber;
+        // const correctNumber = quizArray[selectedQuiz].correctNumber
+        const isCorrect = cor === 1;
 
         // 回答欄にテキストやclass名を付与
-        answerText.innerText = quizArray[selectedQuiz].answers[correctNumber];
+        // answerText.innerText = quizArray[selectedQuiz].answers[correctNumber];
         setTitle(answerTitle, isCorrect);
         setClassName(answerBox, isCorrect);
       })
