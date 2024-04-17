@@ -16,30 +16,6 @@ try {
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]
     );
-    // echo ("Connection to DB");
-    // データベースに対するクエリや操作をここに追加
-
-    // $stmt = $pdo->query('SELECT * FROM questions');
-    // while ($row = $stmt->fetch()) {
-    //     print_r($row);
-    // }
-    // $stmt = $pdo->query('SELECT * FROM choices');
-    // while ($row = $stmt->fetch()) {
-    //     print_r($row);
-    // }
 } catch (PDOException $e) {
     exit($e->getMessage());
 }
-
-
-// <?php
-// $dsn = 'mysql:host=db;dbname=posse;charset=utf8';
-// $user = 'root';
-// $password = 'root';
-
-// try {
-//     $dbh = new PDO($dsn, $user, $password);
-//     //echo 'Connection success!';
-// } catch (PDOException $e) {
-//     //echo 'Connection failed: ' . $e->getMessage();
-// }

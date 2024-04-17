@@ -53,3 +53,30 @@ INSERT INTO choices (id, question_id, name, valid) VALUES
 (16, 6, '約2倍', 0),
 (17, 6, '約5倍', 1),
 (18, 6, '約11倍', 0);
+
+-- ユーザーテーブルの作成
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- 選択肢データの追加my
+INSERT INTO users (id, name, email, password) VALUES
+(1, '栁田和佳', '1007yanagita@gmail.com', '$2y$10$7ujeOvxyxAPlv21/WUCp.u.uncAYBYScAlC2EF.XNkICo7zMRGFwm');
+
+-- docker compose exec db bash
+
+-- ここからがsqlの更新（つまり、web上で色々テーブル内容変えても、sqlに書かれている通りのテーブルに作り直される）
+-- cd docker-entrypoint-initdb.d
+-- mysql -u root -p < init.sql
+-- root
+-- ここまで
+
+-- （web上でテーブル操作した時はここから）
+-- mysql -u root -p
+-- root
+-- use posse
+-- show tables;
+-- select*from テーブル名;
