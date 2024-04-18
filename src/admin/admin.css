@@ -75,3 +75,28 @@ button.submit {
     display: flex;
     gap: 10px;
 }
+
+.p-header__button{
+    background-color: #007bff; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+.button{
+    display: block;
+    color: #ffffff; 
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.p-header__button:hover {
+    background-color: #0056b3; 
+}

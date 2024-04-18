@@ -2,7 +2,6 @@
 require_once('../dbconnect.php');
 
 session_start();
-// $_SESSION['id'] = null;
 
 if (!isset($_SESSION['id'])) {
     header('Location: /admin/auth/signin.php');
@@ -12,7 +11,6 @@ if (!isset($_SESSION['id'])) {
     unset($_SESSION['message']);
     }
 
-    echo($_SESSION['id']);
     $questions = $dbh->query("SELECT * FROM questions")->fetchAll();
     $is_empty = count($questions) === 0;
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -82,9 +80,9 @@ if (!isset($_SESSION['id'])) {
 
 <body>
     <header id="js-header" class="l-header p-header">
-        <div class="p-header__logo"><img src="./assets/img/logo.svg" alt="POSSE"></div>
+        <div class="p-header__logo"><img src="../../assets/img/logo.svg" alt="POSSE"></div>
         <button class="p-header__button" id="js-headerButton">
-        <a href="./auth/signout.php">ボタン</a>
+        <a href="./auth/signout.php" class="button">ログアウト</a>
         </button>
     </header>
     <?php 

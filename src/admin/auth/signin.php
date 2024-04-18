@@ -23,11 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // ユーザーが存在し、パスワードが正しいか確認
         if ($user && password_verify($password, $user["password"])) {
-            // if($user && $password == $user["password"]){
-        session_start();
-        $_SESSION['id'] = $user["id"];
-        header('Location: ../index.php');
-        exit();
+            session_start();
+            $_SESSION['id'] = $user["id"];
+            header('Location: ../index.php');
+            exit();
         } else {
         // 認証失敗: エラーメッセージをセット
         $message = 'メールアドレスまたはパスワードが間違っています。';
@@ -61,8 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // include __DIR__ . '/../../components/admin/header.php'; 
     ?>
     <header id="js-header" class="l-header p-header">
-        <div class="p-header__logo"><img src="./assets/img/logo.svg" alt="POSSE"></div>
-        <button class="p-header__button" id="js-headerButton"></button>
+        <div class="p-header__logo"><img src="../../assets/img/logo.svg" alt="POSSE"></div>
+        <!-- <button class="p-header__button" id="js-headerButton"></button> -->
     </header>
     <div class="wrapper">
     <main>
@@ -100,42 +99,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 
 </html>
-
-<?php
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     // SQL命令の準備
-//     $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email');
-    
-//     // パラメータをバインドする
-//     $stmt->bindValue(":email", $_POST["email"]);
-
-//     // SQL文を実行する
-//     $stmt->execute();
-    
-//     // 結果を変数に代入
-//     $user = $stmt->fetch();
-// }
-
-// if ($_POST['password'] == $user['password']) {
-//     session_start();
-//     $_SESSION['id'] = $user["id"];
-//     header('Location: /admin/index.php');
-//     exit;
-// }
-
-?>
-
-<!-- <form action="register.php" method="POST">
-    メールアドレス
-    <div>
-        <label for="email">メールアドレス：</label>
-        <input type="email" id="email" name="email">
-    </div>
-    パスワード
-    <div>
-        <label for="password">パスワード：</label>
-        <input type="password" id="password" name="password">
-    </div>
-    
-    <input type="submit" value="ログイン"> 
-</form> -->
